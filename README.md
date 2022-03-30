@@ -1,2 +1,16 @@
 # AI1110-Assignments
-This repo is a set of my submissions for the assignments of the AI1110 course (Probability and Random Variables) for my second semester at IITH.
+My submissions for Assignments of AI1110(Probability and Random Variables) for my second semester at IITH.
+Folder Structure:
+Repo:
+├── Assignment:
+│   ├── code:
+│   │   └── main.py
+│   ├── figs:
+│   │   └── Figures for the question(png)
+│   ├── main.aux
+│   ├── main.log
+│   ├── main.out
+│   ├── main.pdf
+│   └── main.tex
+├── LICENSE
+└── README.md
