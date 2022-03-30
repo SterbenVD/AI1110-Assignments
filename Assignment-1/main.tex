@@ -38,38 +38,38 @@
 	\centerline{\includegraphics[scale = 1.0]{./figs/9.2.png}}
 	\label{Figure 9.2}
 	\end{figure}
-\item Using centroid formula,
+\item Let $\vec{A}, \vec{B}, \vec{C}$ be the vectors OA,OB,OC respectively, where O is the origin.
+	Thus,
+	\begin{align*}
+		\vec{A} = -\hat{i} + 3\hat{j} , 
+		\vec{B} = 4\hat{i} + 2\hat{j} , 
+		\vec{C} = 3\hat{i} - 2\hat{j}
+	\end{align*}
+	Using centroid formula,
     the desired point G is given by:
     \begin{align*}
-        G&= \frac{A + B + C}{3}
+        \vec{G}&= \frac{1}{3}(\vec{A} + \vec{B} + \vec{C})
         \\
-        &= \frac{1}{3}\{(-1,3)+(4,2)+(3,-2)\}
+        &= \frac{1}{3}(-\hat{i} + 3\hat{j} + 4\hat{i} + 2\hat{j} + 3\hat{i} - 2\hat{j})
         \\
-        &=\frac{1}{3}(6,3)
+        &=\frac{1}{3}(6\hat{i} + 3\hat{j})
         \\
-        &=(2,1)
+        &= 2\hat{i} + \hat{j}
     \end{align*}
+    G is the point $(2,1)$
 \item Let L be the line that passes through G such that $L \parallel AC$
-    Then, slope of L is equal to slope of AC.
+    Then, L can be expressed as $\vec{G} + k\hat{AC}$
     \begin{align*}
-        m&= \frac{y_C - y_A}{x_C - x_A}
+        \hat{AC} &= \frac{\vec{C} - \vec{A}}{\mid \vec{C} - \vec{A} \mid}
+		\\        
+        &= \frac{3\hat{i} - 2\hat{j} - (-\hat{i} + 3\hat{j})}{\mid 3\hat{i} - 2\hat{j} - (-\hat{i} + 3\hat{j}) \mid}
         \\
-        &= \frac{-2 - 3}{3 - (-1)}
+        &= \frac{4\hat{i} - 5\hat{j}}{\mid 4\hat{i} - 5\hat{j} \mid}
+		\\        
+        &= \frac{4\hat{i} - 5\hat{j}}{\sqrt{41}}
         \\
-        &=\frac{-5}{4}
+        L &= 2\hat{i} + \hat{j} + k(\frac{4\hat{i} - 5\hat{j}}{\sqrt{41}})
     \end{align*}
-    G satisfies the line.
-    \begin{align*}
-        y_G&= mx_G + c
-        \\
-        c&= y_G - mx_G
-        \\
-        &= 1 - \frac{(-5)}{4} \times 2
-        \\
-        &= 1 + \frac{5}{2}
-        \\
-        &= \frac{7}{2}
-    \end{align*}
-    Thus, line L is $y = \frac{-5}{4}x + \frac{7}{2}$
+    Thus, Line L is $2\hat{i} + \hat{j} + m(4\hat{i} - 5\hat{j})$
 \end{enumerate}
 \end{document}
