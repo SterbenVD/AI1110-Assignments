@@ -1,10 +1,12 @@
 \let\negmedspace\undefined
 \let\negthickspace\undefined
-\documentclass[12pt, a4paper]{article}
+\documentclass[12pt, a4paper,twocolumn]{article}
 \usepackage{geometry}
  \geometry{
  left=10mm,
- top=10mm,
+ top=5mm,
+ right=10mm,
+ bottom=20mm,
  }
  \pagenumbering{gobble}
  \usepackage[utf8]{inputenc}
@@ -17,11 +19,14 @@
 \usepackage[breaklinks=false]{hyperref}
 \usepackage{listings}
 \usepackage{calc}
+
 \newcommand{\solution}{\noindent \textbf{Solution: }}
 \newcommand{\question}{\noindent \textbf{Question: }}
-\begin{document}
+
 \title{Assignment 1}
 \author{Vishal Vijay Devadiga (CS21BTECH11061)}
+\date{}
+\begin{document}
 % make the title area
 \maketitle
 \question
@@ -35,7 +40,7 @@
 \solution
 \begin{enumerate}
 	\begin{figure}[htbp]
-	\centerline{\includegraphics[scale = 1.0]{./figs/9.2.png}}
+	\centerline{\includegraphics[scale = 0.6]{./figs/9.2.png}}
 	\label{Figure 9.2}
 	\end{figure}
 \item Let $\vec{A}, \vec{B}, \vec{C}$ be the vectors OA,OB,OC respectively, where O is the origin.
