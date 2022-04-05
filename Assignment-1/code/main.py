@@ -1,6 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from numpy import linalg as LA
+
+# Assigning the points
+A = np.array([-1, 3])
+B = np.array([4, 2])
+C = np.array([3, -2])
+O = np.array([0,0])
 
 def line_gen(type_of_line,*points):
     arr_x = [p[0] for p in points]
@@ -23,11 +28,6 @@ def line_slope(p1,p2):
     slope = diff_points[1] / diff_points[0]
     return slope
 
-A = np.array([-1, 3])
-B = np.array([4, 2])
-C = np.array([3, -2])
-O = np.array([0,0])
-
 # Finding centroid
 G = np.array(centroid(A,B,C))
 
@@ -36,7 +36,8 @@ line_gen("lines",A,B,C,A)
 line_gen("points",G,O)
 
 # Draw Line parallel to AC through G
-plt.axline(G , slope = line_slope(A,C))
+m = line_slope(A,C)
+plt.axline(G , slope = m, c = "#008000")
 
 # Labelling on graph
 plt.title("Fig 9.2")
