@@ -47,19 +47,17 @@
 \end{enumerate}
 \solution
 \begin{enumerate}
-	\begin{figure}[htbp]
-	\centerline{\includegraphics[scale = 0.7]{./figs/9.2.png}}
-	\label{Figure 9.2}
+	\begin{figure}[h]
+	\centering
+	\includegraphics[width=\columnwidth]{./figs/9.2.png}
 	\end{figure}
-\item Let $\vec{A}, \vec{B}, \vec{C}$ be the points vectors OA,OB,OC respectively, where O is the origin.
-	Thus,
+\item Let $\vec{A}, \vec{B}, \vec{C}$ be the points vectors.
 	\begin{align}
 		\vec{A} = \myvec{-1 \\ 3} ,
 		\vec{B} = \myvec{4 \\ 2}  ,
 		\vec{C} = \myvec{3 \\ -2}
 	\end{align}
-	Using centroid formula,
-    the desired point vector $\vec{G}$ is given by:
+	Using centroid formula,the desired point vector $\vec{G}$ is given by:
     \begin{align}
         \vec{G}&= \frac{1}{3}(\vec{A} + \vec{B} + \vec{C})
         \\
@@ -84,22 +82,22 @@
         L &= \myvec{2 \\ 1} + \frac{k}{\sqrt{41}}\myvec{4 \\ -5}
     \end{align}
     Thus, Line L is $\myvec{2 \\ 1} + m\myvec{4 \\ -5}$.
-    Slope of line L is $\frac{-5}{4}$, obtained by vector form.
     The normal equation of the line can be found by finding the y intercept of the line.
     For y-intercept, $\myvec{0 \\ y}$ satisfies the vector form of line.
     \begin{align}
-    		\myvec{0 \\ y} &= \myvec{2 + 4m \\ 1 - 5m}
+    		&\myvec{0 \\ y} = \myvec{2 + 4m \\ 1 - 5m}
     		\\
-    		2+4m &= 0
+    		&2+4m = 0
     		\\
-    		m &= \frac{-1}{2} 
+    		&m = \frac{-1}{2} 
     		\\
-    		y &= 1 - 5m
+    		&y = 1 - 5m
     		\\
-    		y &= 1 - 5 \times \frac{-1}{2}
+    		&y = 1 - 5 \times \frac{-1}{2}
     		\\
-    		y &= \frac{7}{2}
+    		&y = \frac{7}{2}
     \end{align}
-    Thus, line L is $y = \frac{-5}{4}x + \frac{7}{2}$
+    The normal equation of the line is given by $\vec{n}^{\top}\vec{x} = c $ where $\vec{n}$ is the normal vector of line. \\
+    Thus, equation of line is $\myvec{4 \\ -5}\myvec{x \\ y} = \frac{7}{2}$, where $\myvec{4 \\ -5}$ is the normal vector.
 \end{enumerate}
 \end{document} 
