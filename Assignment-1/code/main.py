@@ -1,20 +1,29 @@
-import matplotlib.pyplot as plt
+#Python libraries for math and graphics
 import numpy as np
+import matplotlib.pyplot as plt
 
-# Assigning the points
-A = np.array([-1, 3])
-B = np.array([4, 2])
-C = np.array([3, -2])
-O = np.array([0,0])
+#Generate line points
+def line_gen(A,B):
+  len =10
+  dim = A.shape[0]
+  x_AB = np.zeros((dim,len))
+  lam_1 = np.linspace(0,1,len)
+  for i in range(len):
+    temp1 = A + lam_1[i]*(B-A)
+    x_AB[:,i]= temp1.T
+  return x_AB
 
-def line_gen(type_of_line,*points):
-    arr_x = [p[0] for p in points]
-    arr_y = [p[1] for p in points]
-    if type_of_line == "points":
-        plt.plot(arr_x,arr_y,'o')
-    elif type_of_line == "lines":
-        plt.plot(arr_x,arr_y,marker = 'o')
+def line_dir_pt(m,A,k1,k2):
+  len = 10
+  dim = A.shape[0]
+  x_AB = np.zeros((dim,len))
+  lam_1 = np.linspace(k1,k2,len)
+  for i in range(len):
+    temp1 = A + lam_1[i]*m
+    x_AB[:,i]= temp1.T
+  return x_AB
 
+# Find Centroid of given points
 def centroid(*points):
     arr_x = [p[0] for p in points]
     arr_y = [p[1] for p in points]
@@ -23,32 +32,40 @@ def centroid(*points):
     centroid_y = sum(arr_y)/num_points
     return [centroid_x, centroid_y]
 
-def line_slope(p1,p2):
-    diff_points = p2 - p1
-    slope = diff_points[1] / diff_points[0]
-    return slope
+# Assigning the points
+A = np.array([-1, 3])
+B = np.array([4, 2])
+C = np.array([3, -2])
 
 # Finding centroid
 G = np.array(centroid(A,B,C))
 
-# Draw the triangle and centroid,origin
-line_gen("lines",A,B,C,A)
-line_gen("points",G,O)
+# Plot Sides of Triangle
+xAB = line_gen(A,B)
+xBC = line_gen(B,C)
+xCA = line_gen(C,A)
+plt.plot(xAB[0,:],xAB[1,:])
+plt.plot(xBC[0,:],xBC[1,:])
+plt.plot(xCA[0,:],xCA[1,:])
 
-# Draw Line parallel to AC through G
-m = line_slope(A,C)
-plt.axline(G , slope = m, c = "#008000")
+# Plot Line parallel to AC through G
+m =  C-A
+xG = line_dir_pt(m,G,-0.5,0.5)
+plt.plot(xG[0,:],xG[1,:])
 
-# Labelling on graph
-plt.title("Fig 9.2")
-plt.xlabel("X-axis")
-plt.ylabel("Y-axis")
-plt.annotate("A",A,xytext=(0,5),textcoords="offset points")
-plt.annotate("B",B,xytext=(0,5),textcoords="offset points")
-plt.annotate("C",C,xytext=(0,5),textcoords="offset points")
-plt.annotate("G",G,xytext=(0,5),textcoords="offset points")
-plt.annotate("O",O,xytext=(0,5),textcoords="offset points")
+# Annotating the points
+tri_coords = np.vstack((A,B,C,G)).T
+plt.scatter(tri_coords[0,:], tri_coords[1,:])
+vert_labels = ['A','B','C','G']
+for i, txt in enumerate(vert_labels):
+    plt.annotate(txt,(tri_coords[0,i], tri_coords[1,i]),textcoords="offset points",xytext=(0,10),ha='center')
+
+# Other stuff on plot
+plt.title("Figure 9.2")
+plt.xlabel('$x$')
+plt.ylabel('$y$')
+plt.legend(loc='best')
 plt.grid()
-
+plt.axis('equal')
 plt.savefig("../figs/9.2.png")
 plt.show()
