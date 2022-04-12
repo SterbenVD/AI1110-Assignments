@@ -25,12 +25,8 @@ def line_dir_pt(m,A,k1,k2):
 
 # Find Centroid of given points
 def centroid(*points):
-    arr_x = [p[0] for p in points]
-    arr_y = [p[1] for p in points]
-    num_points = len(points)
-    centroid_x = sum(arr_x)/num_points
-    centroid_y = sum(arr_y)/num_points
-    return [centroid_x, centroid_y]
+  G = np.mean(points,axis=0)
+  return G
 
 # Assigning the points
 A = np.array([-1, 3])
@@ -38,7 +34,7 @@ B = np.array([4, 2])
 C = np.array([3, -2])
 
 # Finding centroid
-G = np.array(centroid(A,B,C))
+G = centroid(A,B,C)
 
 # Plot Sides of Triangle
 xAB = line_gen(A,B)
