@@ -42,12 +42,13 @@
 \end{enumerate}
 \solution
 \begin{enumerate}[label=]
-	\item For a symmetric matrix, $\vec{A}^{\top} = \vec{A}$. \\
-	Thus, for the matrix $\vec{A}$,
+	\item For a symmetric matrix, $\vec{A}^{\top} = \vec{A}$. Thus,
 	\begin{align}
-		&a_{12} = a_{21}
-		\\
-		\implies &2x - 15 = -x^2
+		\myvec{6 & 2x - 15 \\ -x^2 & 10} = \myvec{6 & -x^2 \\ 2x - 15 & 10}
+	\end{align}
+	$\vec{A}^{\top} = \vec{A}$ only if each individual elements are equal. Thus,
+	\begin{align}
+		&2x - 15 = -x^2
 		\\
 		\implies &x^2 + 2x - 15 = 0
 		\\
@@ -56,12 +57,20 @@
 		\implies &x(x+5) - 3(x+5) =0
 		\\
 		\implies &(x-3)(x+5) = 0
+		\\
+		\implies &\fbox{x = -5, 3}
 	\end{align}
-	The roots of the equation $x^2 + 2x -15 = 0$ are -5 and 3. \\
-	Thus, the values of x for which the matrix $\myvec{6 & -x^2 \\ 2x - 15 & 10}$ is symmetric, is -5 and 3.
+	Thus, the values of x for which the matrix $\myvec{6 & -x^2 \\ 2x - 15 & 10}$ is symmetric, is -5 and 3. \\
 	\begin{figure}[h]
 	\centering
-	\includegraphics[width=\columnwidth]{./figs/1.png}
+	\includegraphics[scale = 0.6]{./figs/Figure.png}
+	\caption{Graph of the equation $x^2 + 2x - 15 = 0$}
+	\end{figure}\\
+	By the above graph, it is verifiable that roots of the equation $x^2 + 2x - 15$ are -5 and 3. \\
+	Output of the program used to verify whether the solution is correct:
+	\begin{figure}[h]
+	\includegraphics[width=\columnwidth]{./figs/Output.png}
+	\caption{Output of Program}
 	\end{figure}
 \end{enumerate}
 \end{document}
