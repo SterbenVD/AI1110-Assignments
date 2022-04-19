@@ -9,7 +9,7 @@
  \usepackage{amssymb}
  \usepackage{enumitem}
 \usepackage{mathtools}
-\usepackage[breaklinks=false]{hyperref}
+\usepackage[breaklinks=false,hidelinks]{hyperref}
 \usepackage{listings}
 \usepackage{calc}
 
@@ -51,6 +51,7 @@
 		&2x - 15 = -x^2
 		\\
 		\implies &x^2 + 2x - 15 = 0
+		\label{eq:eq1}
 		\\
 		\implies &x^2 + 5x - 3x -15 = 0
 		\\
@@ -59,18 +60,21 @@
 		\implies &(x-3)(x+5) = 0
 		\\
 		\implies &\fbox{x = -5, 3}
+		\label{eq:eq2}
 	\end{align}
 	Thus, the values of x for which the matrix $\myvec{6 & -x^2 \\ 2x - 15 & 10}$ is symmetric, is -5 and 3. \\
 	\begin{figure}[h]
 	\centering
 	\includegraphics[scale = 0.6]{./figs/Figure.png}
 	\caption{Graph of the equation $x^2 + 2x - 15 = 0$}
+	\label{fig1}
 	\end{figure}\\
-	By the above graph, it is verifiable that roots of the equation $x^2 + 2x - 15$ are -5 and 3. \\
+	By Fig.\ref{fig1}, it is verifiable that roots of the Eq.\ref{eq:eq1} are -5 and 3. \\
 	Output of the program used to verify whether the solution is correct:
 	\begin{figure}[h]
 	\includegraphics[width=\columnwidth]{./figs/Output.png}
 	\caption{Output of Program}
+	\label{fig2}
 	\end{figure}
 \end{enumerate}
 \end{document}
