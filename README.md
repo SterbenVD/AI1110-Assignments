@@ -8,7 +8,7 @@
 Below are Dr. G. V. V. Sharma's free and open-source templates and scripts.
 ## LaTeX Templates
 1. [LaTeX Template](https://github.com/gadepall/AI5030/tree/main/LaTex_Template)
-2. [Math Manuals in LaTeX](https://github.com/gadepall/cbse-papers/tree/main/2020/math)
+2. [Math in LaTeX](https://github.com/gadepall/cbse-papers/tree/main/2020/math)
 ## Programming Scripts
 1. [Coordinate Geometry in Python](https://github.com/gadepall/cbse-papers/tree/main/CoordGeo)
 2. Many More...(Will add in time)
