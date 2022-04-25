@@ -1,8 +1,8 @@
 # AI1110-Assignments
-**Course Name**: Probability and Random Variables
-**Course Code**: AI1110
-**Instructor**: Dr. G. V. V. Sharma
-**University**: Indian Institute of Technology, Hyderabad (IITH)
+- **Course Name**: Probability and Random Variables
+- **Course Code**: AI1110
+- **Instructor**: Dr. G. V. V. Sharma
+- **University**: Indian Institute of Technology, Hyderabad (IITH)
 
 # Course Manuals
 Below are Dr. G. V. V. Sharma's free and open-source templates and scripts.
