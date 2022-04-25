@@ -1,15 +1,12 @@
-from openpyxl import load_workbook
 import pandas as pd
 import numpy as np
 
 # Load Excel file
-Data = load_workbook("./../table/table.xlsx").active
+Data = pd.read_excel("./../table/table.xlsx")
 
 #Read File
-for ranofmarks in Data.iter_cols(min_col=1, max_col=1, values_only=True):
-    pass
-for freq in Data.iter_cols(min_col=2, max_col=2, values_only=True):
-    pass
+ranofmarks = Data["Marks"]
+freq = Data["Number of Students"]
 list = dict((x,y) for x,y in zip(ranofmarks,freq))
 
 # Find probability 
