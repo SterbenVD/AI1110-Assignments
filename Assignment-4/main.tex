@@ -80,24 +80,33 @@ out of the box at random. What is the probability that the marble taken out will
 	\caption{Distribution of Ball wrt Colour}
 	\label{tab1}
 \end{table}
-Let's denote the outcome of the experiment by a random variable $X$ such that
-$X \in \cbrak{Red , Blue, Green}$ where Red, Blue, and Green are the colours of the marbles.
+Let's denote the outcome of the experiment by a random variable $X$ such that:
+\begin{table}[H]
+	\input{table/event.tex}
+	\caption{Description of Events}
+	\label{tab2}
+\end{table}
 \begin{enumerate}[label=(\roman{enumi})]
-    \item $X = Red$ denotes the marble is red.
+    \item $X = 0$ denotes the marble is red.
     \begin{align}
-        \pr{X = Red} & = \frac{5}{17} 
+        \pr{X = 0} & = \frac{5}{17} 
 	    \\
 	    & = \fbox{0.294}
     \end{align}
-    \item $X = White$ denotes the marble is white.
+    \item $X = 1$ denotes the marble is white.
     \begin{align}
-        \pr{X = White} & = \frac{8}{17} 
+        \pr{X = 1} & = \frac{8}{17} 
 	    \\
 	    & = \fbox{0.471}
     \end{align}
-    \item $X \not = Green$ denotes the marble is not green, that is, it is either white or red.
+    \item $X \not = 2$ denotes the marble is not green, that is,
+	$X \in \cbrak{0,1}$. Thus, the marble is either white or red.
     \begin{align}
-        \pr{X \not = Green} & = \frac{5+8}{17}
+        \pr{X \not = 2} & = \pr{X \in \cbrak{0,1}}
+		\\
+		& = \pr{X = 0} + \pr{X = 1}
+		\\
+		& =\frac{5+8}{17}
 	    \\
 	    & = \fbox{0.765}
     \end{align}
