@@ -1,4 +1,0 @@
-\beamer@sectionintoc {1}{Question}{3}{0}{1}
-\beamer@sectionintoc {2}{Data Given from Question}{4}{0}{2}
-\beamer@sectionintoc {3}{Relation to find $EF'$}{5}{0}{3}
-\beamer@sectionintoc {4}{Solution}{6}{0}{4}

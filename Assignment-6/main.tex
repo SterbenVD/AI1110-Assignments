@@ -1,20 +1,26 @@
-\documentclass{beamer}
-\usetheme{CambridgeUS}
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{mathrsfs}
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+%\RequirePackage{amsmath}
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+ \usepackage[utf8]{inputenc}
+ \usepackage{graphicx}
+ \usepackage{amsmath}
+ \usepackage{mathrsfs}
+\usepackage{txfonts}
 \usepackage{stfloats}
 \usepackage{bm}
 \usepackage{cite}
 \usepackage{cases}
 \usepackage{subfig}
-\usepackage{amsfonts}
-\usepackage{amssymb}
+ \usepackage{amsfonts}
+ \usepackage{amssymb}
+ \usepackage{enumitem}
 \usepackage{mathtools}
 \usepackage{tikz}
 \usepackage{circuitikz}
 \usepackage{verbatim}
+\usepackage[breaklinks=false,hidelinks]{hyperref}
+\usepackage{listings}
 \usepackage{calc}
 \usepackage{float}
 \usepackage{longtable}
@@ -25,11 +31,12 @@
 \usepackage{hhline}
 \usepackage{ifthen}
 \usepackage{chngcntr}
-\usepackage{hyperref}
 
 \newcommand{\BEQA}{\begin{eqnarray}}
 \newcommand{\EEQA}{\end{eqnarray}}
 \newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
 \def\inputGnumericTable{}
 
 \let\vec\mathbf
@@ -49,68 +56,48 @@
 \newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
 \newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
 
+\newcommand{\question}{\noindent \textbf{Question: }}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+
+
 \title{Assignment 6}
 \author{Vishal Vijay Devadiga (CS21BTECH11061)}
-\date{\today}
+\date{}
 \begin{document}
+% make the title area
+\maketitle
 
-% Title page frame
-\begin{frame}
-    \titlepage
-\end{frame}
+\question
+Prove that if $E$ and $F$ are independent events, then so are the events $E$ and $F'$ \\
+\solution
+Probability of Intersection of 2 or more independent events is the product of probability of the events happening individually. \\
+Given, $E$ and $F$ are independent events. Thus,
+\begin{align}
+	\label{eq:1}
+	\pr{E + F} = \pr{E} \times \pr{F}
+\end{align}
 
-% Remove logo from the next slides
-\logo{}
+$F'$ and $F$ are mutually exclusive events. $E$ can be expressed such as:
+\begin{align}
+	E = EF + EF'
+\end{align}
+$EF$ and $EF'$ are also mutually exclusive events. Therefore,
+\begin{align}
+	\pr{E}            & = \pr{EF} + \pr{EF'}
+	\\
+	\label{eq:2}
+	\implies \pr{EF'} & = \pr{E} - \pr{EF}
+\end{align}
 
-% Outline frame
-\begin{frame}{Outline}
-    \tableofcontents
-\end{frame}
 
-% Beginning of Actual Doc
-\section{Question}
-\begin{frame}{Question}
-    Prove that if $E$ and $F$ are independent events, then so are the events $E$ and $F'$
-\end{frame}
-
-\section{Data Given from Question}
-\begin{frame}{Data Given from Question}
-    \begin{block}{Theory}
-        Probability of Intersection of 2 or more independent events is the product of probability of the events happening individually.
-    \end{block}
-    Given, $E$ and $F$ are independent events. Thus,
-    \begin{align}
-        \label{eq:1}
-        \pr{E + F} = \pr{E} \times \pr{F}
-    \end{align}
-\end{frame}
-
-\section{Relation to find $EF'$}
-\begin{frame}{Relation to find $EF'$}
-    $F'$ and $F$ are mutually exclusive events. $E$ can be expressed such as:
-    \begin{align}
-        E = EF + EF'
-    \end{align}
-    $EF$ and $EF'$ are also mutually exclusive events. Therefore,
-    \begin{align}
-        \pr{E}            & = \pr{EF} + \pr{EF'}
-        \\
-        \label{eq:2}
-        \implies \pr{EF'} & = \pr{E} - \pr{EF}
-    \end{align}
-\end{frame}
-
-\section{Solution}
-\begin{frame}{Solution}
-    Using \eqref{eq:1} and \eqref{eq:2}, we get,
-    \begin{align}
-        \pr{EF'} & = \pr{E} - \pr{E} \times \pr{F}
-        \\
-                 & = \pr{E}\brak{1 - \pr{F}}
-        \\
-        \label{eq:result}
-        \pr{EF'} & = \pr{E} \times \pr{F'}
-    \end{align}
-    By \eqref{eq:result}, it can be concluded that $E$ and $F'$ are mutually exclusive events.
-\end{frame}
+Using \eqref{eq:1} and \eqref{eq:2}, we get,
+\begin{align}
+	\pr{EF'} & = \pr{E} - \pr{E} \times \pr{F}
+	\\
+	         & = \pr{E}\brak{1 - \pr{F}}
+	\\
+	\label{eq:result}
+	\pr{EF'} & = \pr{E} \times \pr{F'}
+\end{align}
+By \eqref{eq:result}, it can be concluded that $E$ and $F'$ are independent events.
 \end{document}
