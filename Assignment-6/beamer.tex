@@ -49,7 +49,8 @@
 \newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
 \newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
 
-\title{Assignment 6}
+\title{AI1110: Probability and Random Variables}
+\subtitle{Assignment 6}
 \author{Vishal Vijay Devadiga (CS21BTECH11061)}
 \date{\today}
 \begin{document}
@@ -70,10 +71,11 @@
 % Beginning of Actual Doc
 \section{Question}
 \begin{frame}{Question}
-    Prove that if $E$ and $F$ are independent events, then so are the events $E$ and $F'$
+    Prove that if $E$ and $F$ are independent events, then so are the events $E$ and $F'$.
 \end{frame}
 
-\section{Data Given from Question}
+\section{Solution}
+\subsection{Data Given from Question}
 \begin{frame}{Data Given from Question}
     \begin{block}{Theory}
         Probability of Intersection of 2 or more independent events is the product of probability of the events happening individually.
@@ -81,12 +83,12 @@
     Given, $E$ and $F$ are independent events. Thus,
     \begin{align}
         \label{eq:1}
-        \pr{E + F} = \pr{E} \times \pr{F}
+        \pr{E F} = \pr{E} \times \pr{F}
     \end{align}
 \end{frame}
 
-\section{Relation to find $EF'$}
-\begin{frame}{Relation to find $EF'$}
+\subsection{Finding $EF'$}
+\begin{frame}{Finding $EF'$}
     $F'$ and $F$ are mutually exclusive events. $E$ can be expressed such as:
     \begin{align}
         E = EF + EF'
@@ -100,8 +102,8 @@
     \end{align}
 \end{frame}
 
-\section{Solution}
-\begin{frame}{Solution}
+\subsection{Result}
+\begin{frame}{Result}
     Using \eqref{eq:1} and \eqref{eq:2}, we get,
     \begin{align}
         \pr{EF'} & = \pr{E} - \pr{E} \times \pr{F}
@@ -113,4 +115,13 @@
     \end{align}
     By \eqref{eq:result}, it can be concluded that $E$ and $F'$ are independent events.
 \end{frame}
+
+%\section{Code}
+%\begin{frame}{Code}
+%	Output of the program used to verify whether the solution is correct:
+%	\begin{figure}[H]
+%		\centering
+%		\includegraphics[width=\columnwidth]{../figs/prog.png}
+%	\end{figure}
+%\end{frame}
 \end{document}
