@@ -50,7 +50,7 @@
 \newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
 
 \title{AI1110: Probability and Random Variables}
-\subtitle{Assignment 7}
+\subtitle{Assignment 8}
 \author{Vishal Vijay Devadiga (CS21BTECH11061)}
 \date{\today}
 \begin{document}
@@ -71,38 +71,21 @@
 % Beginning of Actual Doc
 \section{Question}
 \begin{frame}{Question}
-    Show that if $AB = \cbrak{\phi}$, then $\pr{A} \leq \pr{B'}$
+    A fair die is rolled five times. Find the probability that one shows twice. three shows twice, and six shows once.
 \end{frame}
 
 \section{Solution}
 \subsection{Data Given from Question}
 \begin{frame}{Data Given from Question}
     \begin{block}{Theory}
-        \begin{align}
-            \label{eq:Theory_1}
-            \pr{A+B} = \pr{A} + \pr{B} - \pr{AB}
-        \end{align}
+        For a bernoulli trial, with events $A_1,A_2, \dots A_n$, and $\pr{A_i} = p_i$ where
+        $p_1 + p_2 + \dots p_n = 1$,
+        
     \end{block}
-    Given,
-    \begin{align}
-        AB &= 0
-        \\
-        \label{eq:1}
-        \implies \pr{AB} &= 0
-    \end{align}
 \end{frame}
 
 \subsection{Result}
 \begin{frame}{Result}
-    By \eqref{eq:1} and \eqref{eq:Theory_1},
-    \begin{align}
-        \pr{A+B} = &\pr{A} + \pr{B} \leq 1 
-        \\
-        \implies &\pr{A} + 1 - \pr{B'} \leq 1
-        \\
-        \label{eq:Result}
-        \implies &\pr{A} \leq \pr{B'}
-    \end{align}
-    By \eqref{eq:Result}, Proved. 
+    
 \end{frame}
 \end{document}
