@@ -50,7 +50,7 @@
 \newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
 
 \title{AI1110: Probability and Random Variables}
-\subtitle{Assignment 8}
+\subtitle{Assignment 9}
 \author{Vishal Vijay Devadiga (CS21BTECH11061)}
 \date{\today}
 \begin{document}
@@ -71,51 +71,39 @@
 % Beginning of Actual Doc
 \section{Question}
 \begin{frame}{Question}
-    A fair die is rolled five times. Find the probability that one shows twice. three shows twice, and six shows once.
+    Given that random variable x is of continuous type. we form the random variable $y = g(x)$.
+    \begin{enumerate}
+        \item Find $f_y(y)$ if $g(x) = 2F_x(x) + 4$. 
+        \item Find $g(x)$ such that y is uniform in the interval $\cbrak{8, 10}$. 
+    \end{enumerate}
 \end{frame}
 
 \section{Solution}
-\subsection{Theory}
-\begin{frame}{Theory}
-        For a Bernoulli trial, with events $A_1,A_2, \dots A_r$, and $\pr{A_i} = p_i$ where $\sum^r_{i=1} p_i = 1$, \\ 
-        If the experiment is repeated n times where we denote by $p_n\brak{k_l,k_2,\dots,k_r}$, the probability of
-        the event $A_i$ occurs $k_i$ times in any order where $\sum^r_{i=1} k_i = n$, then
-        \begin{align}
-            \label{eq:theory}
-            p_n\brak{k_l,k_2,\dots,k_r} = \dfrac{n!}{k_1! k_2! \dots k_r!} p_1^{k_1} p_2^{k_2} \dots p_r^{k_r}
-        \end{align}
-\end{frame}
-
-\subsection{PMF}
-\begin{frame}{PMF}
-    Let the random variable $X$ denote the number that appears on rolling the die. The PMF is given by:
-    \begin{equation}
-        \pr{X = k} = 
-        \begin{cases}
-            \dfrac{1}{6}, & 1 \geq k \geq 6 \\
-            0, & \text{otherwise}
-        \end{cases}
-        \label{pmf}
-    \end{equation}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[scale = 0.39]{./figs/figure.png}
-        \caption{}
-        \label{fig:pmf}
-    \end{figure}
-\end{frame}
-
-\subsection{Result}
-\begin{frame}{Result}
-    By \eqref{eq:theory} and \eqref{pmf},
+\subsection{Data given}
+\begin{frame}{Data given}
+    Given,
     \begin{align}
-        p_5\brak{2,0,2,0,0,1} &= \dfrac{5!}{2! 2! 1!} \brak{\frac{1}{6}}^2 \brak{\frac{1}{6}}^2 \brak{\frac{1}{6}}^1
+        \label{eq:data}
+        &y = 2F_x(x) + 4 
         \\
-        &= \dfrac{120}{4} \brak{\frac{1}{6}}^5
-        \\
-        \label{eq:result}
-        &= \dfrac{5}{6^4}
+        \implies &4 \leq y \leq 6
     \end{align}
-    By \eqref{eq:result}, the probability that one shows twice. three shows twice, and six shows once is $\dfrac{5}{6^4}$.
+    Also,
+    \begin{align}
+        &g(x) = 2F_x(x) + 4 
+        \\ 
+        &g'(x) = 2f_x(x) 
+    \end{align}
 \end{frame}
+
+\subsection{Solution}
+\begin{frame}{Solution}
+
+If $4 \leq y \leq 6$ and $y = 2F_x(x) + 4$ has a unique solution $x_1$ then,
+\begin{align}
+    f_y(y) = \frac{f_x(x_1)}{2f_x(x_1)} = \fbox{0.5}
+\end{align}
+If $8 < y < 10$, then $y = 2F_x(x) + 8$
+\end{frame} 
+
 \end{document}
