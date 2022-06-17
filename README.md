@@ -11,4 +11,3 @@ Below are Dr. G. V. V. Sharma's free and open-source templates and scripts.
 2. [Math in LaTeX](https://github.com/gadepall/cbse-papers/tree/main/2020/math)
 ## Programming Scripts
 1. [Coordinate Geometry in Python](https://github.com/gadepall/cbse-papers/tree/main/CoordGeo)
-2. Many More...(Will add others in time)
