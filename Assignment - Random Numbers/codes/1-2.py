@@ -1,8 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Theory Graph
-tg = np.concatenate([np.zeros(10),np.linspace(0,1,20), np.ones(10)])
+
 
 # Experimental Graph	
 maxrange = 40
@@ -14,8 +13,18 @@ for i in range(0,maxrange):
 	arr_len= np.count_nonzero(arr < x[i])
 	err.append(arr_len/size)
 
+# Theory Graph
+def cdf(i):
+    if(i < 0):
+        return 0
+    elif(i > 1):
+        return 1
+    else:
+        return i
+
+tg= np.vectorize(cdf,otypes=[np.float])
 plt.scatter(x.T,err,label="Experimental CDF")
-plt.plot(x,tg,color="orange",label="Theoretical CDF")
+plt.plot(x,tg(x),color="orange",label="Theoretical CDF")
 plt.xlabel('$x$')
 plt.ylabel('$CDF$')
 plt.legend(loc='best')

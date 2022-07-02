@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+import scipy as sc
 # Experimental Graph
 maxrange = 60
 x = np.linspace(-0.5, 2.5, maxrange)
@@ -11,25 +11,19 @@ for i in range(0, maxrange):
     arr_len = np.count_nonzero(arr < x[i])
     err.append(arr_len/size)
 
-# Theory Graph
-tg = []
-def tpdf(y):
-    ans = 0
-    if(y < 0 or y > 2):
-        ans = 0
-    elif(y < 1):
-        ans = y
+def tcdf(i):
+    if(i < 0):
+        return 0
+    elif(i < 1):
+        return i**2/2
+    elif(i < 2):
+        return -(i**2)/2 + 2*i - 1
     else:
-        ans = 2 - y
-    return ans
+        return 1
 
-sum = 0
-for i in range(0, maxrange):
-    sum += tpdf(x[i]) * (3/maxrange)
-    tg.append(sum)
-
+tg = sc.vectorize(tcdf, otypes=[np.float])
+plt.plot(x,tg(x),color='orange',label = "Theoretical CDF")
 plt.scatter(x.T, err, label="Experimental CDF")
-plt.plot(x, tg, color='orange', label="Theoretical CDF")
 plt.xlabel('$T$')
 plt.ylabel('$CDF$')
 plt.legend(loc='best')

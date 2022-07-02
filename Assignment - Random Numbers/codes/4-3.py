@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+import scipy as sc
 # Experimental Graph
 maxrange = 60
 x = np.linspace(-0.5, 2.5, maxrange)
@@ -17,8 +17,8 @@ for i in range(0,maxrange-1):
     derr.append(val)
 
 # Theory Graph
-tg = []
-for y in x:
+
+def tpdf(y):
     ans = 0
     if(y < 0 or y > 2):
         ans = 0
@@ -26,10 +26,12 @@ for y in x:
         ans = y
     else:
         ans = 2 - y
-    tg.append(ans)
+    return ans
 
+
+tg = sc.vectorize(tpdf, otypes=[np.float])
+plt.plot(x,tg(x),color='orange',label = "Theoretical PDF")
 plt.scatter((x[0:(maxrange-1)].T + x[1:].T)/2,derr,color='blue',label="Experimental PDF")
-plt.plot(x, tg, color='orange', label="Theoretical PDF")
 plt.xlabel('$T$')
 plt.ylabel('$CDF$')
 plt.legend(loc='best')

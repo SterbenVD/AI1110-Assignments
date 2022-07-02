@@ -1,7 +1,7 @@
 \let\negmedspace\undefined
 \let\negthickspace\undefined
 %\RequirePackage{amsmath}
-\documentclass[journal,12pt,onecolumn]{IEEEtran}
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
  \usepackage[utf8]{inputenc}
  \usepackage{graphicx}
  \usepackage{amsmath}
@@ -96,7 +96,7 @@ wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%
           \end{align}
           \begin{figure}[H]
               \centering
-              \includegraphics[scale = 0.7]{../figs/1_cdf.png}
+              \includegraphics[width = \columnwidth]{../figs/1_cdf.png}
               \caption{The CDF of $U$}
               \label{fig:1_cdf}
           \end{figure}
@@ -133,7 +133,7 @@ wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%
           \end{align}
           \\
     \item
-          The mean of $U$ is defined as:
+          The mean of $U$ is defined as :
           \begin{equation}
               E\sbrak{U} = \dfrac{1}{N}\sum_{i=1}^{N}U_i
           \end{equation}
@@ -213,7 +213,7 @@ wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%
     \item Load gau.dat in python and plot the empirical CDF of $X$ using the samples in gau.dat.
           \begin{figure}[H]
               \centering
-              \includegraphics[scale = 0.7]{../figs/2_cdf}
+              \includegraphics[width = \columnwidth]{../figs/2_cdf}
               \caption{The CDF of $X$}
               \label{fig:2_cdf}
           \end{figure}
@@ -228,7 +228,7 @@ wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%
           \end{align}
           \begin{figure}[H]
               \centering
-              \includegraphics[scale = 0.7]{../figs/2_pdf}
+              \includegraphics[width = \columnwidth]{../figs/2_pdf}
               \caption{The PDF of $X$}
               \label{fig:2_pdf}
           \end{figure}
@@ -265,7 +265,7 @@ wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%
           \begin{align}
               E[X^2] & =  \int_{-\infty}^{\infty} \dfrac{x^2}{\sqrt{2\pi}}\exp{\left(-\dfrac{x^2}{2}\right)}
               \\
-                     & = -\dfrac{x}{\sqrt{2\pi}}e^{\brak{-\dfrac{x^2}{2}}} \Bigg{|}_{-\infty}^{\infty} + \int_{-\infty}^{\infty} \dfrac{1}{\sqrt{2\pi}}e^{\brak{-\dfrac{x^2}{2}}}
+                     & = -\dfrac{x}{\sqrt{2\pi}}e^{-\dfrac{x^2}{2}} \Bigg{|}_{-\infty}^{\infty} + \int_{-\infty}^{\infty} \dfrac{1}{\sqrt{2\pi}}e^{-\dfrac{x^2}{2}}
               \\
                      & = 0 + \dfrac{1}{\sqrt{2\pi}} \times \sqrt{2\pi}
               \\
@@ -277,6 +277,15 @@ wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%
                             & = 1
           \end{align}
           Therefore, the mean is $0$ and the variance is $1$.
+          \begin{align}
+          	\pr{X > x} &= Q\brak{Z > x}
+          	\\
+          	&= Q\brak{z}
+          	\\
+          	CDF &= \pr{X < x}
+          	\\
+          	&= 1 - Q\brak{z}
+          \end{align}
 \end{enumerate}
 
 \section{From Uniform to Other}
@@ -291,7 +300,7 @@ wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%
           \solution
           \begin{figure}[H]
               \centering
-              \includegraphics[scale = 0.6]{../figs/3_cdf}
+              \includegraphics[width = \columnwidth]{../figs/3_cdf}
               \caption{The CDF of $V$}
               \label{fig:3_cdf}
           \end{figure}
@@ -350,7 +359,7 @@ wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%
           \solution
           \begin{figure}[H]
               \centering
-              \includegraphics[scale = 0.5]{../figs/4_cdf}
+              \includegraphics[width = \columnwidth]{../figs/4_cdf}
               \caption{The CDF of $V$}
               \label{fig:4_cdf}
           \end{figure}
@@ -362,7 +371,7 @@ wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%
           \\
           \solution\begin{figure}[H]
               \centering
-              \includegraphics[scale = 0.9]{../figs/4_pdf}
+              \includegraphics[width = \columnwidth]{../figs/4_pdf}
               \caption{The PDF of $T$}
               \label{fig:4_pdf}
           \end{figure}

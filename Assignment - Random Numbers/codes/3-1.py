@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+import scipy as sc
 maxrange = 50
 x = np.linspace(-2, 10, maxrange)
 size = 1000000
@@ -13,19 +13,16 @@ for i in range(0, maxrange):
     arr_n = np.size(arr_leq)
     err.append(arr_n/size)
 
-tg = []
+
 def tcdf(y):
-	return 1 - np.exp(-y/2)
-
-for i in range(0,maxrange):
-    if(x[i] > 0):
-        temp = tcdf(x[i])
-        tg.append(temp)
+    if(y < 0):
+        return 0
     else:
-        tg.append(0)
+	    return 1 - np.exp(-y/2)
 
+tg = sc.vectorize(tcdf, otypes=[np.float])
+plt.plot(x,tg(x),color='orange',label = "Theoretical CDF")
 plt.scatter(x, err, color="blue", label="Experimental CDF")
-plt.plot(x, tg, color='orange', label="Theoretical CDF")
 plt.xlabel('$V$')
 plt.ylabel('$CDF$')
 plt.legend(loc='best')
