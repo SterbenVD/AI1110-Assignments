@@ -278,13 +278,13 @@ wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%
           \end{align}
           Therefore, the mean is $0$ and the variance is $1$.
           \begin{align}
-          	\pr{X > x} &= Q\brak{Z > x}
-          	\\
-          	&= Q\brak{z}
-          	\\
-          	CDF &= \pr{X < x}
-          	\\
-          	&= 1 - Q\brak{z}
+              \pr{X > x} & = Q\brak{Z > x}
+              \\
+                         & = Q\brak{z}
+              \\
+              CDF        & = \pr{X < x}
+              \\
+                         & = 1 - Q\brak{z}
           \end{align}
 \end{enumerate}
 
@@ -360,7 +360,7 @@ wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%
           \begin{figure}[H]
               \centering
               \includegraphics[width = \columnwidth]{../figs/4_cdf}
-              \caption{The CDF of $V$}
+              \caption{The CDF of $T$}
               \label{fig:4_cdf}
           \end{figure}
           The following \gitlink{codes/4-2.py}{python code} plots Fig. \ref{fig:4_cdf} or type in terminal:
@@ -450,37 +450,109 @@ wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%
           \begin{equation}
               Y = AX+N,
           \end{equation}
-          where $A = 5 \text{ dB}, X$ \i $\cbrak{1,-1}$,  is Bernoulli and $N \sim \gauss{0}{1}$.
-    \item Plot $Y$.
-    \item Guess how to estimate $X$ from $Y$.
-    \item
+          where $A = 5 \text{ dB}, X$ \i $\cbrak{1,-1}$,  is Bernoulli and $N \sim \gauss{0}{1}$. \\
+          \solution Download the following files and execute the \gitlink{codes/5-1.c}{C program} or type in terminal:
+          \begin{lstlisting}
+wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%20Random\%20Numbers/codes/5-1.c
+                    \end{lstlisting}
+    \item Plot $Y$. \\
+          \solution
+          \begin{figure}[H]
+              \centering
+              \includegraphics[width = \columnwidth]{../figs/5_Y}
+              \caption{Plot of $Y$}
+              \label{fig:5_Y}
+          \end{figure}
+          The following \gitlink{codes/5-2.py}{python code} plots Fig. \ref{fig:5_Y} or type in terminal:
+          \begin{lstlisting}
+wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%20Random\%20Numbers/codes/5-2.py
+            \end{lstlisting}
+    \item Guess how to estimate $X$ from $Y$. \\
+          \solution Since X is Bernoulli with values $\cbrak{-1,1}$,
+          the function $sgn\brak{y}$ can be defined to estimate X from Y.
+          \begin{align}
+              sgn(y) =
+              \begin{cases}
+                  -1, & y \in (-\infty,0)
+                  \\
+                  1,  & y \in [0, \infty)
+              \end{cases}
+          \end{align}
+          Using $sgn\brak{y}$, we can estimate the corresponding values of X.
           \label{ml-ch4_sim}
-          Find
+    \item Find
           \begin{equation}
               P_{e|0} = \pr{\hat{X} = -1|X=1}
           \end{equation}
           and
           \begin{equation}
               P_{e|1} = \pr{\hat{X} = 1|X=-1}
-          \end{equation}
-          %
-    \item Find $P_e$.
-          %
+          \end{equation} \\
+          \solution Download the following files and execute the \gitlink{codes/5-4.c}{C program} or type in terminal:
+          \begin{lstlisting}
+wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%20Random\%20Numbers/codes/5-4.c
+              \end{lstlisting}
+          Values Obtained:
+          \begin{align}
+               & \fbox{$P_{e|0} = 0.310412$}
+               & \fbox{$P_{e|1} = 0.310724$}
+          \end{align}
+    \item Find $P_e$. \\
+          \solution
+          \begin{align}
+              P_e & = P_{e|0} \times \pr{X = 1} + P_{e|1} \times \pr{X = -1}
+              \\
+                  & = \dfrac{P_{e|0} + P_{e|1}}{2}
+          \end{align}
+          Also,
+          \begin{align}
+              P_{e|0} & = \pr{\hat{X} = -1|X=1}
+              \\
+                      & = \pr{AX + N < 0|X=1}
+              \\
+                      & = \pr{A + N < 0}
+              \\
+                      & = \pr{N < -A}
+          \end{align}
+          Since, $N \sim \gauss{0}{1}$
+          \begin{align}
+              \implies P_{e|0} & = \int_{-\infty} ^{-A} \dfrac{1}{\sqrt{2\pi}} e^{\frac{-x^2}{2}} dx
+              \\
+                               & = \int_{A} ^{\infty} \dfrac{1}{\sqrt{2\pi}} e^{\frac{-x^2}{2}} dx
+              \\
+                               & = Q_N(A)
+          \end{align}
+          Similarly, $P_{e|1} = Q_N(A)$
+          \begin{align}
+              \implies P_e = Q_N(A)
+          \end{align}
     \item
-          Verify by plotting  the theoretical $P_e$.
+          Verify by plotting  the theoretical $P_e$. \\
+          \solution
+          \begin{figure}[H]
+              \centering
+              \includegraphics[width = \columnwidth]{../figs/5-6}
+              \caption{Plot of $P_e$}
+              \label{fig:5-6}
+          \end{figure}
+          The following \gitlink{codes/5-6.py}{python code} plots Fig. \ref{fig:5-6} or type in terminal:
+          \begin{lstlisting}
+wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%20Random\%20Numbers/codes/5-6.py
+              \end{lstlisting}
 \end{enumerate}
 \section{Gaussian to Other}
 \begin{enumerate}[label=\thesection.\arabic*
         ,ref=\thesection.\theenumi]
     \item
           Let $X_1 \sim  \gauss{0}{1}$ and $X_2 \sim  \gauss{0}{1}$. Plot the CDF and PDF of
-          %
           \begin{equation}
               V = X_1^2 + X_2^2
-          \end{equation}
-          %
-          %
-          %
+          \end{equation} \\
+          \solution Download the following files and execute the \gitlink{codes/6-1.c}{C program} or type in terminal:
+          \begin{lstlisting}
+wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%20Random\%20Numbers/codes/6-1.c
+                    \end{lstlisting}
+
     \item
           If
           %
@@ -500,97 +572,27 @@ wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%
           %
           \begin{equation}
               A = \sqrt{V}
-          \end{equation}
-          %
-\end{enumerate}
-\section{Conditional Probability}
-\begin{enumerate}[label=\thesection.\arabic*
-        ,ref=\thesection.\theenumi]
-    \item
-    \item
-          \label{ch4_sim}
-          Plot
-          \begin{equation}
-              P_e = \pr{\hat{X} = -1|X=1}
-          \end{equation}
-          %
-          for
-          \begin{equation}
-              Y = AX+N,
-          \end{equation}
-          where $A$ is Raleigh with $E\sbrak{A^2} = \gamma, N \sim \gauss{0}{1}, X \in \brak{-1,1}$ for $0 \le \gamma \le 10$ dB.
-          %
-    \item
-          Assuming that $N$ is a constant, find an expression for $P_e$.  Call this $P_e(N)$
-          %
-    \item
-          %
-          \label{ch4_anal}
-          For a function $g$,
-          \begin{equation}
-              E\sbrak{g(X)} = \int_{-\infty}^{\infty}g(x)p_{X}(x)\, dx
-          \end{equation}
-          %
-          Find $P_e = E\sbrak{P_e(N)}$.
-          %
-    \item
-          Plot $P_e$ in problems \ref{ch4_sim} and \ref{ch4_anal} on the same graph w.r.t $\gamma$.  Comment.
-\end{enumerate}
-\section{Two Dimensions}
-Let
-\begin{equation}
-    \mbf{y} = A\mbf{x} + \mbf{n},
-\end{equation}
-where
-\begin{align}
-    x       & \in \brak{\mbf{s}_0,\mbf{s}_1},
-    \mbf{s}_0 =
-    \begin{pmatrix}
-        1
-        \\
-        0
-    \end{pmatrix},
-    \mbf{s}_1 =
-    \begin{pmatrix}
-        0
-        \\
-        1
-    \end{pmatrix}
-    \\
-    \mbf{n} & =
-    \begin{pmatrix}
-        n_1
-        \\
-        n_2
-    \end{pmatrix},
-    n_1,n_2 \sim \gauss{0}{1}.
-\end{align}
-%
-\begin{enumerate}[label=\thesection.\arabic*
-        ,ref=\thesection.\theenumi]
-    %%
-    \item
-          \label{ch5_fsk}
-          Plot
-          %
-          \begin{equation}
-              \mbf{y}|\mbf{s}_0 \text{ and } \mbf{y}|\mbf{s}_1
-          \end{equation}
-          %
-          on the same graph using a scatter plot.
-          %
-    \item
-          For the above problem, find a decision rule for detecting the symbols $\mbf{s}_0 $ and $\mbf{s}_1$.
-          %
-    \item
-          Plot
-          \begin{equation}
-              P_e = \pr{\hat{\mbf{x}} = \mbf{s}_1|\mbf{x} = \mbf{s}_0}
-          \end{equation}
-          with respect to the SNR from 0 to 10 dB.
-          %
-    \item
-          Obtain an expression for $P_e$. Verify this by comparing the theory and simulation plots on the same graph.
-          %
+          \end{equation}\\
+          \solution
+          %\begin{figure}[H]
+          %    \centering
+          %    \includegraphics[width = \columnwidth]{../figs/6-3_cdf}
+          %    \caption{The CDF of $A$}
+          %    \label{fig:6-3_cdf}
+          %\end{figure}
+          %The following \gitlink{codes/6-3_cdf.py}{python code} plots Fig. \ref{fig:6-3_cdf} or type in terminal:
+          \begin{lstlisting}
+wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%20Random\%20Numbers/codes/6-3_cdf.py
+            \end{lstlisting}
+          %\begin{figure}[H]
+          %    \centering
+          %    \includegraphics[width = \columnwidth]{../figs/6_3_pdf}
+          %    \caption{The CDF of $A$}
+          %    \label{fig:6-3_pdf}
+          %\end{figure}
+          %The following \gitlink{codes/6-3_pdf.py}{python code} plots Fig. \ref{fig:6-3_pdf} or type in terminal:
+          \begin{lstlisting}
+wget https://github.com/SterbenVD/AI1110-Assignments/blob/main/Assignment\%20-\%20Random\%20Numbers/codes/6-3_pdf.py
+              \end{lstlisting}
 \end{enumerate}
 \end{document}

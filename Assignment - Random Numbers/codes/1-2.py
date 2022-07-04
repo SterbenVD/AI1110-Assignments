@@ -1,8 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-
 # Experimental Graph	
 maxrange = 40
 x = np.linspace(-0.5,1.5,maxrange)

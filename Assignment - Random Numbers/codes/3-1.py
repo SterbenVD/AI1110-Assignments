@@ -21,7 +21,7 @@ def tcdf(y):
 	    return 1 - np.exp(-y/2)
 
 tg = sc.vectorize(tcdf, otypes=[np.float])
-plt.plot(x,tg(x),color='orange',label = "Theoretical CDF")
+plt.plot(x,tg(x),color='orange',label = "Theoretical C  DF")
 plt.scatter(x, err, color="blue", label="Experimental CDF")
 plt.xlabel('$V$')
 plt.ylabel('$CDF$')

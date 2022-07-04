@@ -13,8 +13,11 @@ for i in range(0, maxrange):
     arr_n = np.size(arr_leq)
     err.append(arr_n/size)
 
+def Q_gauss(y):
+    return mp.erfc(y/mp.sqrt(2))/2
+
 def gauss_cdf(y):
-	return 1 - (mp.erfc(y/mp.sqrt(2)))/2
+	return 1 - Q_gauss(y)
 
 tg= np.vectorize(gauss_cdf,otypes=[np.float])
 plt.scatter(x, err, color="blue", label="Experimental CDF")
